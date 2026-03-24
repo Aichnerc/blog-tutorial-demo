@@ -1,11 +1,13 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import LanguageSwitcher from "../../components/LanguageSwitcher.astro";
 import { useTranslations } from "../../i18n/languages.js";
 
 const t = useTranslations('de');
 ---
 
 <BaseLayout pageTitle={t('page.home.title')}>
+  <LanguageSwitcher />
   <p>Dies ist meine fantastische Astro-Website!</p>
   <p>
     Wenn Sie dies sehen, haben Sie erfolgreich Astro zum Laufen gebracht! 🚀

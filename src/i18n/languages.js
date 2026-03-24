@@ -51,7 +51,10 @@ export const ui = {
     'post.title.3': 'My Third Blog Post',
     'post.desc.3': 'I had some challenges, but asking in the community really helped!',
     'post.title.4': 'My Fourth Blog Post',
-    'post.desc.4': 'This post will show up on its own!'
+    'post.desc.4': 'This post will show up on its own!',
+    'lang.switch': 'Switch Language',
+    'lang.english': 'English',
+    'lang.german': 'Deutsch'
   },
   de: {
     'nav.home': 'Startseite',
@@ -83,6 +86,9 @@ export const ui = {
     'post.title.3': 'Mein dritter Blog-Beitrag',
     'post.desc.3': 'Ich hatte einige Herausforderungen, aber die Community um Hilfe zu bitten hat wirklich geholfen!',
     'post.title.4': 'Mein vierter Blog-Beitrag',
-    'post.desc.4': 'Dieser Beitrag wird eigenständig angezeigt!'
+    'post.desc.4': 'Dieser Beitrag wird eigenständig angezeigt!',
+    'lang.switch': 'Sprache wechseln',
+    'lang.english': 'English',
+    'lang.german': 'Deutsch'
   }
 };

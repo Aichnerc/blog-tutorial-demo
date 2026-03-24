@@ -1,0 +1,110 @@
+---
+import { getLangFromUrl, useTranslations, languages } from "../i18n/languages.js";
+
+const currentLang = getLangFromUrl(Astro.url);
+const t = useTranslations(currentLang);
+
+// Get the current path without language prefix
+const currentPath = Astro.url.pathname.replace(/^\/[a-z]{2}\/|^\//g, '') || '';
+
+// Generate language switch URLs
+function getLanguageUrl(lang) {
+  if (lang === 'en') {
+    return `/${currentPath}`;
+  }
+  return `/${lang}/${currentPath}`;
+}
+---
+
+<div class="language-switcher">
+  <span class="language-label">{t('lang.switch')}:</span>
+  <div class="language-buttons">
+    {Object.entries(languages).map(([langCode, langName]) => (
+      <a
+        href={getLanguageUrl(langCode)}
+        class={`language-link ${currentLang === langCode ? 'active' : ''}`}
+        title={t(`lang.${langCode === 'en' ? 'english' : 'german'}`)}
+      >
+        {langName}
+      </a>
+    ))}
+  </div>
+</div>
+
+<style>
+  .language-switcher {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin: 1rem 0;
+    padding: 0.75rem;
+    background-color: var(--accent-light, #f8f9fa);
+    border-radius: 8px;
+    border: 1px solid var(--accent, #ccc);
+  }
+
+  .language-label {
+    font-weight: 500;
+    color: var(--text-color, #333);
+    font-size: 0.9rem;
+  }
+
+  .language-buttons {
+    display: flex;
+    gap: 0.25rem;
+  }
+
+  .language-link {
+    padding: 0.4rem 0.8rem;
+    text-decoration: none;
+    color: var(--accent-dark, #0066cc);
+    border: 1px solid var(--accent, #ccc);
+    border-radius: 4px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    background-color: white;
+  }
+
+  .language-link:hover {
+    background-color: var(--accent, #e6f2ff);
+    border-color: var(--accent-dark, #0066cc);
+    transform: translateY(-1px);
+  }
+
+  .language-link.active {
+    background-color: var(--accent-dark, #0066cc);
+    color: white;
+    border-color: var(--accent-dark, #0066cc);
+    cursor: default;
+    pointer-events: none;
+  }
+
+  /* Dark theme support */
+  @media (prefers-color-scheme: dark) {
+    .language-switcher {
+      background-color: var(--accent-dark, #2c2c2c);
+      border-color: var(--accent, #555);
+    }
+
+    .language-label {
+      color: var(--text-color-dark, #e0e0e0);
+    }
+
+    .language-link {
+      background-color: var(--bg-dark, #1a1a1a);
+      color: var(--text-color-dark, #e0e0e0);
+      border-color: var(--accent, #555);
+    }
+
+    .language-link:hover {
+      background-color: var(--accent, #444);
+      border-color: var(--accent-light, #777);
+    }
+
+    .language-link.active {
+      background-color: var(--accent-dark, #0066cc);
+      color: white;
+    }
+  }
+</style>
