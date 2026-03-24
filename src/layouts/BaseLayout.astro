@@ -18,8 +18,10 @@ const lang = getLangFromUrl(Astro.url);
   </head>
   <body>
     <Header />
-    <h1>{pageTitle}</h1>
-    <slot />
+    <main>
+      <h1>{pageTitle}</h1>
+      <slot />
+    </main>
     <Footer />
     <script>
       import "../scripts/menu.js";

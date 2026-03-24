@@ -2,21 +2,152 @@
 import Menu from "./Menu.astro";
 import Navigation from "./Navigation.astro";
 import ThemeIcon from "./ThemeIcon.astro";
+import { getLangFromUrl, useTranslations } from "../i18n/languages.js";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const basePath = lang === 'en' ? '' : `/${lang}`;
 ---
 
-<header>
-  <nav>
-    <div>
-      <ThemeIcon />
-      <Menu />
+<header class="modern-header">
+  <nav class="nav-container">
+    <!-- Logo/Brand Section -->
+    <div class="brand-section">
+      <a href={`${basePath}/`} class="logo">
+        <span class="logo-text">YourSite</span>
+      </a>
     </div>
-    <Navigation />
+
+    <!-- Mobile Menu Button -->
+    <div class="mobile-controls">
+      <Menu />
+      <ThemeIcon />
+    </div>
+
+    <!-- Desktop Navigation -->
+    <div class="nav-wrapper">
+      <Navigation />
+      <ThemeIcon />
+    </div>
   </nav>
 </header>
 
 <style>
-  div {
+  .modern-header {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    transition: all 0.3s ease;
+  }
+
+  .nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
     display: flex;
+    align-items: center;
     justify-content: space-between;
+    height: 70px;
+  }
+
+  .brand-section {
+    flex-shrink: 0;
+  }
+
+  .logo {
+    text-decoration: none;
+    color: inherit;
+    font-weight: bold;
+    font-size: 1.5rem;
+    transition: color 0.3s ease;
+  }
+
+  .logo:hover {
+    color: #ff9776;
+  }
+
+  .logo-text {
+    background: linear-gradient(135deg, #0d0950, #ff9776);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+  }
+
+  .mobile-controls {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .nav-wrapper {
+    display: none;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  /* Dark mode styles */
+  :global(.dark) .modern-header {
+    background: rgba(13, 9, 80, 0.95);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  :global(.dark) .logo-text {
+    background: linear-gradient(135deg, #fff, #ff9776);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  /* Desktop styles */
+  @media screen and (min-width: 636px) {
+    .mobile-controls {
+      display: none;
+    }
+
+    .nav-wrapper {
+      display: flex;
+    }
+
+    .nav-container {
+      padding: 0 2rem;
+    }
+  }
+
+  /* Enhanced animations */
+  .modern-header {
+    animation: slideDown 0.3s ease-out;
+  }
+
+  @keyframes slideDown {
+    from {
+      transform: translateY(-100%);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  /* Hover effects for better interactivity */
+  .nav-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #ff9776, transparent);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+  }
+
+  .modern-header:hover .nav-container::before {
+    transform: scaleX(1);
   }
 </style>

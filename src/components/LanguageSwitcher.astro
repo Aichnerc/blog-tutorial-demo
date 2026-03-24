@@ -23,7 +23,7 @@ function getLanguageUrl(lang) {
       <a
         href={getLanguageUrl(langCode)}
         class={`language-link ${currentLang === langCode ? 'active' : ''}`}
-        title={t(`lang.${langCode === 'en' ? 'english' : 'german'}`)}
+        title={t(`lang.${langCode === 'en' ? 'english' : langCode === 'de' ? 'german' : 'italian'}`)}
       >
         {langName}
       </a>

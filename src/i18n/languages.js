@@ -1,7 +1,8 @@
 // Language configuration
 export const languages = {
   en: 'English',
-  de: 'Deutsch'
+  de: 'Deutsch',
+  it: 'Italiano'
 };
 
 export const defaultLang = 'en';
@@ -28,7 +29,7 @@ export const ui = {
     'nav.tags': 'Tags',
     'nav.menu': 'Menu',
     'theme.toggle': 'Toggle theme',
-    'page.home.title': 'Home Page',
+    'page.home.title': 'Willkommen bei uns',
     'page.about.title': 'About Me',
     'page.blog.title': 'My Astro Learning Blog',
     'page.tags.title': 'Tag Index',
@@ -54,7 +55,8 @@ export const ui = {
     'post.desc.4': 'This post will show up on its own!',
     'lang.switch': 'Switch Language',
     'lang.english': 'English',
-    'lang.german': 'Deutsch'
+    'lang.german': 'Deutsch',
+    'lang.italian': 'Italiano'
   },
   de: {
     'nav.home': 'Startseite',
@@ -63,7 +65,7 @@ export const ui = {
     'nav.tags': 'Tags',
     'nav.menu': 'Menü',
     'theme.toggle': 'Theme wechseln',
-    'page.home.title': 'Startseite',
+    'page.home.title': 'Willkommen bei uns',
     'page.about.title': 'Über mich',
     'page.blog.title': 'Mein Astro Lern-Blog',
     'page.tags.title': 'Tag-Übersicht',
@@ -90,5 +92,41 @@ export const ui = {
     'lang.switch': 'Sprache wechseln',
     'lang.english': 'English',
     'lang.german': 'Deutsch'
+  },
+  it: {
+    'nav.home': 'Home',
+    'nav.about': 'Chi siamo',
+    'nav.blog': 'Blog',
+    'nav.tags': 'Tag',
+    'nav.menu': 'Menu',
+    'theme.toggle': 'Cambia tema',
+    'page.home.title': 'Benvenuti da noi',
+    'page.about.title': 'Chi sono',
+    'page.blog.title': 'Il mio Blog di Apprendimento Astro',
+    'page.tags.title': 'Indice dei Tag',
+    'page.tags.tagged': 'Post taggati con',
+    'blog.written_by': 'Scritto da:',
+    'greeting.new': 'Nuovo Saluto',
+    'greeting.thanks': 'Grazie per la visita!',
+    'about.subtitle': 'Chi sono',
+    'about.intro': 'Ecco alcuni fatti su di me:',
+    'about.skills': 'Le mie competenze sono:',
+    'about.happy': 'Sono felice di imparare Astro!',
+    'about.finished': 'Ho completato questo tutorial!',
+    'about.goal': 'Il mio obiettivo è finire in 3 giorni.',
+    'rss.title': 'Studente Astro | Blog',
+    'rss.description': 'Il mio viaggio nell\'imparare Astro',
+    'post.title.1': 'Il Mio Primo Post del Blog',
+    'post.desc.1': 'Questo è il primo post del mio nuovo blog Astro.',
+    'post.title.2': 'Il Mio Secondo Post del Blog',
+    'post.desc.2': 'Dopo aver imparato un po\' di Astro, non sono riuscito a fermarmi!',
+    'post.title.3': 'Il Mio Terzo Post del Blog',
+    'post.desc.3': 'Ho avuto alcune sfide, ma chiedere aiuto alla community ha davvero aiutato!',
+    'post.title.4': 'Il Mio Quarto Post del Blog',
+    'post.desc.4': 'Questo post apparirà da solo!',
+    'lang.switch': 'Cambia Lingua',
+    'lang.english': 'English',
+    'lang.german': 'Deutsch',
+    'lang.italian': 'Italiano'
   }
 };

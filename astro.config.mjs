@@ -9,7 +9,7 @@ export default defineConfig({
   integrations: [preact()],
   i18n: {
     defaultLocale: "en",
-    locales: ["en", "de"],
+    locales: ["en", "de", "it"],
     routing: {
       prefixDefaultLocale: false,
     }
