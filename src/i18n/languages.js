@@ -29,7 +29,7 @@ export const ui = {
     'nav.tags': 'Tags',
     'nav.menu': 'Menu',
     'theme.toggle': 'Toggle theme',
-    'page.home.title': 'Willkommen bei uns',
+    'page.home.title': 'Welcome to us',
     'page.about.title': 'About Me',
     'page.blog.title': 'My Astro Learning Blog',
     'page.tags.title': 'Tag Index',
