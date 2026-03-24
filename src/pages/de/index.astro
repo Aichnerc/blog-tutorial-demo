@@ -1,0 +1,16 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { useTranslations } from "../../i18n/languages.js";
+
+const t = useTranslations('de');
+---
+
+<BaseLayout pageTitle={t('page.home.title')}>
+  <p>Dies ist meine fantastische Astro-Website!</p>
+  <p>
+    Wenn Sie dies sehen, haben Sie erfolgreich Astro zum Laufen gebracht! 🚀
+  </p>
+  <p>
+    Entdecken Sie den Blog, lernen Sie mich kennen, oder schauen Sie sich die Tags an.
+  </p>
+</BaseLayout>

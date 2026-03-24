@@ -1,0 +1,79 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Greeting from "../../components/Greeting";
+import { useTranslations } from "../../i18n/languages.js";
+
+const t = useTranslations('de');
+const pageTitle = t('page.about.title');
+
+const identity = {
+  firstName: "Sarah",
+  country: "Kanada",
+  occupation: "Technische Autorin",
+  hobbies: ["Fotografie", "Vogelbeobachtung", "Baseball"],
+};
+
+const skills = ["HTML", "CSS", "JavaScript", "React", "Astro", "Technisches Schreiben"];
+
+const happy = true;
+const finished = false;
+const goal = 3;
+
+const skillColor = "navy";
+const fontWeight = "bold";
+const textCase = "uppercase";
+---
+
+<BaseLayout pageTitle={pageTitle}>
+  <h2>{t('about.subtitle')}</h2>
+  <p>{t('about.intro')}</p>
+
+  <ul>
+    <li>Mein Name ist {identity.firstName}.</li>
+    <li>
+      Ich lebe in {identity.country} und arbeite als {identity.occupation}.
+    </li>
+    {
+      identity.hobbies.length >= 2 && (
+        <li>
+          Zwei meiner Hobbys sind: {identity.hobbies[0]} und {identity.hobbies[1]}
+        </li>
+      )
+    }
+  </ul>
+  <p>{t('about.skills')}</p>
+  <ul>
+    {skills.map((skill) => <li class="skill">{skill}</li>)}
+  </ul>
+
+  {happy && <p>{t('about.happy')}</p>}
+
+  {finished && <p>{t('about.finished')}</p>}
+
+  {
+    goal > 2 && (
+      <p>{t('about.goal')}</p>
+    )
+  }
+
+  <Greeting
+    client:load
+    messages={["Hej", "Hallo", "Hola", "Habari"]}
+    translations={{
+      thanks: t('greeting.thanks'),
+      newGreeting: t('greeting.new')
+    }}
+  />
+</BaseLayout>
+
+<style define:vars={{ skillColor, fontWeight, textCase }}>
+  h1 {
+    color: purple;
+    font-size: 4rem;
+  }
+  .skill {
+    color: var(--skillColor);
+    font-weight: var(--fontWeight);
+    text-transform: var(--textCase);
+  }
+</style>

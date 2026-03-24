@@ -1,8 +1,13 @@
 ---
+import { getLangFromUrl, useTranslations } from "../i18n/languages.js";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const basePath = lang === 'en' ? '' : `/${lang}`;
 ---
 <div id="main-menu" class="nav-links">
-  <a href="/">Home</a>
-  <a href="/about/">About</a>
-  <a href="/blog/">Blog</a>
-  <a href="/tags/">Tags</a>
+  <a href={`${basePath}/`}>{t('nav.home')}</a>
+  <a href={`${basePath}/about/`}>{t('nav.about')}</a>
+  <a href={`${basePath}/blog/`}>{t('nav.blog')}</a>
+  <a href={`${basePath}/tags/`}>{t('nav.tags')}</a>
 </div>

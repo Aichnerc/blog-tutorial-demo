@@ -1,6 +1,10 @@
 ---
+import { getLangFromUrl, useTranslations } from "../i18n/languages.js";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 
 <button aria-expanded="false" aria-controls="main-menu" class="menu">
-  Menu
+  {t('nav.menu')}
 </button>

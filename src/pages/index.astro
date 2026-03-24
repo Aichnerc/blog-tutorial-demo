@@ -1,9 +1,19 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Greeting from '../components/Greeting';
-const pageTitle = "Homè Page hehe";
+import { useTranslations } from '../i18n/languages.js';
+
+const t = useTranslations('en');
+const pageTitle = t('page.home.title');
 ---
 <BaseLayout pageTitle={pageTitle}>
   <h2>My awesome blog subtitle</h2>
-  <Greeting client:load messages={["Hej", "Hallo", "Hola", "Habari"]} />
+  <Greeting
+    client:load
+    messages={["Hej", "Hallo", "Hola", "Habari"]}
+    translations={{
+      thanks: t('greeting.thanks'),
+      newGreeting: t('greeting.new')
+    }}
+  />
 </BaseLayout>

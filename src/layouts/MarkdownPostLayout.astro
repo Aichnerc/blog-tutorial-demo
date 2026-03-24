@@ -1,19 +1,24 @@
 ---
 import BaseLayout from "./BaseLayout.astro";
+import { getLangFromUrl, useTranslations } from "../i18n/languages.js";
+
 const { frontmatter } = Astro.props;
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const basePath = lang === 'en' ? '' : `/${lang}`;
 ---
 
 <BaseLayout pageTitle={frontmatter.title}>
   <p>{frontmatter.pubDate.toString().slice(0, 10)}</p>
   <p><em>{frontmatter.description}</em></p>
-  <p>Written by: {frontmatter.author}</p>
+  <p>{t('blog.written_by')} {frontmatter.author}</p>
   <img src={frontmatter.image.url} width="300" alt={frontmatter.image.alt} />
 
   <div class="tags">
     {
       frontmatter.tags.map((tag: string) => (
         <p class="tag">
-          <a href={`/tags/${tag}`}>{tag}</a>
+          <a href={`${basePath}/tags/${tag}`}>{tag}</a>
         </p>
       ))
     }
