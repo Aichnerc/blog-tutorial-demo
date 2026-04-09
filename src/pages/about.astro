@@ -1,6 +1,5 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import profileImage from "../assets/image-q6WfC9e47j.png";
 
 const pageTitle = "About Me";
 
@@ -32,20 +31,11 @@ const textCase = "uppercase";
     font-weight: var(--fontWeight);
     text-transform: var(--textCase);
   }
-  .profile-image {
-    max-width: 300px;
-    width: 100%;
-    height: auto;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    margin: 2rem 0;
-  }
 </style>
 
 <BaseLayout pageTitle={pageTitle}>
   <h2>... and my new Astro site!</h2>
 
-  <img src={profileImage.src} alt="Profile photo" class="profile-image" />
 
   <p>
     I am working through Astro's introductory tutorial. This is the second page
