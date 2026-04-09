@@ -3,6 +3,7 @@ import Menu from "./Menu.astro";
 import Navigation from "./Navigation.astro";
 import ThemeIcon from "./ThemeIcon.astro";
 import { getLangFromUrl, useTranslations } from "../i18n/languages.js";
+import logo from "../assets/quillra-sm-c1xqA1tMdL.png";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
@@ -14,7 +15,7 @@ const basePath = lang === 'en' ? '' : `/${lang}`;
     <!-- Logo/Brand Section -->
     <div class="brand-section">
       <a href={`${basePath}/`} class="logo">
-        <span class="logo-text">YourSite</span>
+        <img src={logo.src} alt="Quillra" class="logo-img" />
       </a>
     </div>
 
@@ -69,13 +70,14 @@ const basePath = lang === 'en' ? '' : `/${lang}`;
     color: #ff9776;
   }
 
-  .logo-text {
-    background: linear-gradient(135deg, #0d0950, #ff9776);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    font-weight: 800;
-    letter-spacing: -0.02em;
+  .logo-img {
+    height: 40px;
+    width: auto;
+    transition: opacity 0.3s ease;
+  }
+
+  .logo:hover .logo-img {
+    opacity: 0.8;
   }
 
   .mobile-controls {
@@ -96,11 +98,8 @@ const basePath = lang === 'en' ? '' : `/${lang}`;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   }
 
-  :global(.dark) .logo-text {
-    background: linear-gradient(135deg, #fff, #ff9776);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
+  :global(.dark) .logo-img {
+    filter: brightness(1.1);
   }
 
   /* Desktop styles */
